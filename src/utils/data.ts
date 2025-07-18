@@ -98,6 +98,38 @@ export const posts: PostsProps[] = [
           },
         ],
       },
+      {
+        subject: 'Styled Components',
+
+        content: [
+          {
+            title: 'CSS-in-JS',
+            content:
+              'Permite escrever CSS dentro de arquivos JavaScript utilizando template literals.',
+          },
+          {
+            title: 'Temas',
+            content:
+              'É possível criar temas personalizados e compartilhá-los com todos os componentes por meio de ThemeProvider.',
+          },
+        ],
+      },
+      {
+        subject: 'JavaScript Moderno',
+
+        content: [
+          {
+            title: 'ES6+',
+            content:
+              'Inclui recursos como arrow functions, destructuring, template literals, modules e promises.',
+          },
+          {
+            title: 'Async/Await',
+            content:
+              'Facilita o trabalho com promessas, tornando o código assíncrono mais legível e organizado.',
+          },
+        ],
+      },
     ],
   },
   {
@@ -165,6 +197,26 @@ export const posts: PostsProps[] = [
             title: 'Refresh Token',
             content:
               'Refresh Tokens permitem renovar o acesso sem reautenticar o usuário. São úteis para sessões longas e segurança contra roubo de credenciais.',
+          },
+        ],
+      },
+      {
+        subject: 'Java',
+        content: [
+          {
+            title: 'Spring Boot',
+            content:
+              'Spring Boot é um framework Java que facilita a criação de aplicações web e APIs REST com configuração mínima. Ele oferece recursos como injeção de dependência, segurança integrada, suporte a bancos de dados e inicialização rápida.',
+          },
+          {
+            title: 'Hibernate e JPA',
+            content:
+              'Hibernate é um framework de mapeamento objeto-relacional (ORM) que implementa a especificação JPA (Java Persistence API). Ele permite mapear classes Java para tabelas do banco de dados, facilitando o acesso, a persistência e a manipulação de dados com menos código SQL.',
+          },
+          {
+            title: 'Testes com JUnit',
+            content:
+              'JUnit é o framework padrão de testes unitários em Java. Ele permite validar o comportamento de métodos e classes, garantindo qualidade e evitando regressões. Pode ser integrado com ferramentas como Maven e Gradle.',
           },
         ],
       },
@@ -363,6 +415,47 @@ export const posts: PostsProps[] = [
           },
         ],
       },
+      {
+        subject: 'Testes Unitários',
+        content: [
+          {
+            title: 'Conceito',
+            content:
+              'Testes que verificam se unidades individuais do código funcionam corretamente, como funções ou métodos.',
+          },
+        ],
+      },
+      {
+        subject: 'Testes de Interface',
+
+        content: [
+          {
+            title: 'Simulação de Usuário',
+            content:
+              'Simula interações reais de usuários com a interface, como cliques e preenchimento de formulários.',
+          },
+        ],
+      },
+      {
+        subject: 'TDD',
+        content: [
+          {
+            title: 'Test Driven Development',
+            content:
+              'Metodologia onde os testes são escritos antes da implementação, garantindo que o código atenda aos requisitos desde o início.',
+          },
+        ],
+      },
+      {
+        subject: 'Cobertura de Testes',
+        content: [
+          {
+            title: 'Coverage Report',
+            content:
+              'Ferramentas como Jest e Istanbul geram relatórios de quais linhas do código foram testadas.',
+          },
+        ],
+      },
     ],
   },
   {
@@ -473,10 +566,30 @@ export const posts: PostsProps[] = [
           },
         ],
       },
+      {
+        subject: 'RESTful API',
+        content: [
+          {
+            title: 'Métodos HTTP',
+            content:
+              'GET, POST, PUT, DELETE são métodos usados para acessar e manipular recursos em uma API REST.',
+          },
+        ],
+      },
+      {
+        subject: 'GraphQL',
+        content: [
+          {
+            title: 'Consultas Dinâmicas',
+            content:
+              'Permite ao cliente especificar exatamente os dados que deseja, evitando over-fetching e under-fetching.',
+          },
+        ],
+      },
     ],
   },
   {
-    theme: 'Segurança',
+    theme: 'Segurança da informação',
     content: [
       {
         subject: 'Boas Práticas',
@@ -520,6 +633,27 @@ export const posts: PostsProps[] = [
             title: 'CORS',
             content:
               'CORS (Cross-Origin Resource Sharing) controla quais domínios podem acessar recursos do servidor. É importante configurar corretamente para evitar bloqueios ou brechas.',
+          },
+        ],
+      },
+      {
+        subject: 'Autenticação',
+        content: [
+          {
+            title: 'JWT',
+            content:
+              'JSON Web Tokens são usados para autenticação entre cliente e servidor, permitindo sessões seguras.',
+          },
+        ],
+      },
+      {
+        subject: 'Criptografia',
+
+        content: [
+          {
+            title: 'Hash e Salt',
+            content:
+              'Senhas devem ser armazenadas com hashing (ex: bcrypt) e salt para aumentar a segurança contra ataques.',
           },
         ],
       },

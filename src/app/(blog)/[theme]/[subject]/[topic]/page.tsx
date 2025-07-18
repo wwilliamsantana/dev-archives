@@ -5,6 +5,11 @@ interface Params {
 }
 
 export default async function Topic({ params }: { params: Promise<Params> }) {
-  const { topic } = await params
-  return <h1>Sucess: {topic}</h1>
+  const { theme, subject, topic } = await params
+
+  const decodedTheme = decodeURIComponent(theme)
+  const decodedSubject = decodeURIComponent(subject)
+  const decodedTopict = decodeURIComponent(topic)
+
+  return <h1>Sucess: {decodedTopict}</h1>
 }

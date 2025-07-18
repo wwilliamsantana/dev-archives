@@ -32,10 +32,9 @@ export default async function Subject({ params }: { params: Promise<Params> }) {
               return (
                 <Link
                   key={post.title}
-                  href={`/${theme}/${subjectParams}/${post.title}`}
-                  className="basis-1/4"
+                  href={`/${encodeURIComponent(theme)}/${encodeURIComponent(subjectParams)}/${encodeURIComponent(post.title)}`}
                 >
-                  <CarouselItem className="p-9 bg-stone-800 rounded text-white text-center max-md:basis-1/3 max-sm:basis-1/2 ">
+                  <CarouselItem className="w-[200px] h-[110px] p-9 bg-stone-800 rounded text-white text-center max-md:basis-1/3 max-sm:basis-1/2 flex items-center justify-center">
                     {post.title}
                   </CarouselItem>
                 </Link>
