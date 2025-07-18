@@ -9,7 +9,7 @@ export default function admin() {
         <h1 className="font-bold text-2xl">ArchivesDevs</h1>
       </div>
       <div className="w-full h-full flex items-center justify-center flex-col bg-black/90 text-white">
-        <form action="" className="flex flex-col w-1/2 gap-5">
+        <form action="" className="flex flex-col w-1/2 gap-5 h-1/2">
           <span className="flex flex-col gap-3">
             <label htmlFor="" className="text-xs">Login</label>
             <input type="text" className="bg-white rounded px-2  text-black" />
