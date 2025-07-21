@@ -5,6 +5,14 @@ import {
 } from '@/components/ui/carousel'
 import { posts } from '@/utils/data'
 import Link from 'next/link'
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from '@/components/ui/breadcrumb'
 
 interface Params {
   theme: string
@@ -24,7 +32,20 @@ export default async function Subject({ params }: { params: Promise<Params> }) {
 
   return (
     <main className="w-10/12 mx-auto mt-6 max-h-screen">
-      <h2 className="text-lg tracking-wider">{decodedTheme}</h2>
+      <Breadcrumb className="py-5">
+        <BreadcrumbList className="tracking-wider ">
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link href={'/'}>{decodedTheme}</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>{decodedSubject}</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+
       <section className="flex flex-col gap-4">
         <Carousel className="w-full">
           <CarouselContent className="flex gap-2 ml-1">

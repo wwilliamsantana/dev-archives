@@ -3,6 +3,15 @@ import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
 import rehypeHighlight from 'rehype-highlight'
 import { posts } from '@/utils/data'
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbSeparator,
+  BreadcrumbPage,
+} from '@/components/ui/breadcrumb'
+import Link from 'next/link'
 
 interface Params {
   theme: string
@@ -27,7 +36,28 @@ export default async function Topic({ params }: { params: Promise<Params> }) {
 
   return (
     <main className="w-10/12 mx-auto mt-6 max-h-screen">
-      <h1 className="text-2xl tracking-wider ">{decodedTopict}</h1>
+      <Breadcrumb className="py-5">
+        <BreadcrumbList className="tracking-wider ">
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link href={'/'}>{decodedTheme}</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link href={`/${decodedTheme}/${decodedSubject}`}>
+                {decodedSubject}
+              </Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>{decodedTopict}</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+
       <section className="mt-4">
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
