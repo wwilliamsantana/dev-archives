@@ -13,9 +13,9 @@ interface Params {
 export default async function Topic({ params }: { params: Promise<Params> }) {
   const { theme, subject, topic } = await params
 
-  const decodedTheme = decodeURIComponent(theme).replaceAll('%20', ' ')
-  const decodedSubject = decodeURIComponent(subject).replaceAll('%20', ' ')
-  const decodedTopict = decodeURIComponent(topic).replaceAll('%20', ' ')
+  const decodedTheme = decodeURIComponent(decodeURIComponent(theme))
+  const decodedSubject = decodeURIComponent(decodeURIComponent(subject))
+  const decodedTopict = decodeURIComponent(decodeURIComponent(topic))
 
   const themeResult = posts.find((post) => post.theme === decodedTheme)
   const postsTheme = themeResult?.content.find(
