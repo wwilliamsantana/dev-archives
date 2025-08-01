@@ -1,11 +1,17 @@
-import { posts } from '@/utils/data'
+import { api } from '@/data/api'
+import { PostsProps } from '@/data/types/post'
+
 import Link from 'next/link'
 
-export default function Themes() {
-  const themesList = posts.map(({ theme, content }) => ({
-    theme,
-    content: content.map((item) => item.subject),
-  }))
+export async function getPosts(): Promise<PostsProps[]> {
+  const response = await api('/posts/themes')
+  const posts = response.json()
+
+  return posts
+}
+
+export default async function Themes() {
+  const themesList = await getPosts()
 
   return (
     <div className="p-4">
@@ -17,7 +23,9 @@ export default function Themes() {
             <ul className="list-disc list-inside text-sm text-gray-700 mt-2">
               {themeItem.content.map((subject, i) => (
                 <li key={i} className="list-none">
-                  <Link href={`${themeItem.theme}/${subject}`}>{subject}</Link>
+                  <Link href={`${themeItem.theme}/${subject}`}>
+                    {String(subject)}
+                  </Link>
                 </li>
               ))}
             </ul>
