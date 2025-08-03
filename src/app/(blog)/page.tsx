@@ -10,17 +10,17 @@ export async function getThemesPost(): Promise<PostsProps[]> {
 }
 
 export default async function Home() {
-  const themesList = await getThemesPost()
+  const posts = await getThemesPost()
 
   return (
     <main className="w-10/12 mx-auto mt-6 max-h-screen">
       <section className="flex flex-col gap-4 w-full">
-        {themesList.map((post) => {
+        {posts.map((item) => {
           return (
             <CarouselItems
-              theme={post.theme}
-              subject={post.content}
-              key={post.theme}
+              key={item.theme}
+              theme={item.theme}
+              content={item.content}
             />
           )
         })}

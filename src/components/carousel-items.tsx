@@ -7,23 +7,23 @@ import Link from 'next/link'
 
 interface CarouselItemsProps {
   theme: string
-  subject: string[]
+  content: string[]
 }
 
-export function CarouselItems({ theme, subject }: CarouselItemsProps) {
+export function CarouselItems({ theme, content }: CarouselItemsProps) {
   return (
     <div>
       <h2 className="text-lg tracking-wider font-bold ">{theme}</h2>
       <Carousel className="w-full mt-2 mb-5" opts={{ align: 'start' }}>
         <CarouselContent className="flex gap-2 ml-1 w-full">
-          {subject.map((post, i) => {
+          {content.map((title, i) => {
             return (
               <Link
-                href={`/${encodeURIComponent(theme)}/${encodeURIComponent(post)}`}
+                href={`/${encodeURIComponent(theme)}/${encodeURIComponent(title)}`}
                 key={i}
               >
                 <CarouselItem className="w-[200px] h-[110px] p-9 bg-stone-800  rounded text-white  flex items-center justify-center text-center">
-                  {post}
+                  {title}
                 </CarouselItem>
               </Link>
             )
