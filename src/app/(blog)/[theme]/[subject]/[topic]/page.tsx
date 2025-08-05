@@ -2,7 +2,7 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
 import rehypeHighlight from 'rehype-highlight'
-import { posts } from '@/utils/data'
+
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -12,27 +12,37 @@ import {
   BreadcrumbPage,
 } from '@/components/ui/breadcrumb'
 import Link from 'next/link'
+import { TopicProps } from '@/data/types/topic'
+import { api } from '@/data/api'
 
-interface Params {
-  theme: string
-  subject: string
-  topic: string
+interface TopicParams {
+  params: {
+    theme: string
+    subject: string
+    topic: string
+  }
 }
 
-export default async function Topic({ params }: { params: Promise<Params> }) {
-  const { theme, subject, topic } = await params
+export async function getTopic({
+  params,
+}: TopicParams): Promise<TopicProps | undefined> {
+  const { subject, theme, topic } = params
+  const response = await api(`/posts/${theme}/${subject}/${topic}`)
+  const posts = response.json()
 
-  const decodedTheme = decodeURIComponent(decodeURIComponent(theme))
-  const decodedSubject = decodeURIComponent(decodeURIComponent(subject))
-  const decodedTopict = decodeURIComponent(decodeURIComponent(topic))
+  return posts
+}
 
-  const themeResult = posts.find((post) => post.theme === decodedTheme)
-  const postsTheme = themeResult?.content.find(
-    (subject) => subject.subject === decodedSubject,
-  )
-  const topicsResult = postsTheme?.content.find(
-    (topic) => topic.title === decodedTopict,
-  )
+export default async function Topic({ params }: TopicParams) {
+  const paramsData = await params
+
+  const theme = decodeURIComponent(decodeURIComponent(paramsData.theme))
+  const subject = decodeURIComponent(decodeURIComponent(paramsData.subject))
+  const topic = decodeURIComponent(decodeURIComponent(paramsData.topic))
+
+  const post = await getTopic({
+    params: { theme, subject, topic },
+  })
 
   return (
     <main className="w-10/12 mx-auto mt-6 max-h-screen">
@@ -40,20 +50,18 @@ export default async function Topic({ params }: { params: Promise<Params> }) {
         <BreadcrumbList className="tracking-wider ">
           <BreadcrumbItem>
             <BreadcrumbLink asChild>
-              <Link href={'/'}>{decodedTheme}</Link>
+              <Link href={'/'}>{theme}</Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
             <BreadcrumbLink asChild>
-              <Link href={`/${decodedTheme}/${decodedSubject}`}>
-                {decodedSubject}
-              </Link>
+              <Link href={`/${theme}/${subject}`}>{subject}</Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbPage>{decodedTopict}</BreadcrumbPage>
+            <BreadcrumbPage className="font-semibold">{topic}</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
@@ -63,7 +71,7 @@ export default async function Topic({ params }: { params: Promise<Params> }) {
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[rehypeRaw, rehypeHighlight]}
         >
-          {topicsResult?.content}
+          {post?.content}
         </ReactMarkdown>
       </section>
     </main>
