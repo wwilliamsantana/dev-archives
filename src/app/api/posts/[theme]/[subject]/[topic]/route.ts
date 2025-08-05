@@ -18,7 +18,7 @@ export async function GET(_: Request, { params }: ParamsProps) {
     topic: z.string(),
   })
 
-  const { theme, subject, topic } = paramsSchema.parse(params)
+  const { theme, subject, topic } = paramsSchema.parse(await params)
 
   const themeResult = data.posts.find((post) => post.theme === theme)
 
