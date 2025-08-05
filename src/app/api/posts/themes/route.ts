@@ -1,17 +1,15 @@
 import data from '../data.json'
 
-interface PostsProps {
-  theme: string
-  content: string[]
-}
-
 export async function GET() {
   await new Promise((resolve) => setTimeout(resolve, 1000))
 
-  const posts: PostsProps[] = data.posts.map(({ theme, content }) => ({
-    theme,
-    content: content.map((item) => item.subject),
-  }))
+  const posts = data.posts.map((item) => {
+    const data = item.content.map((post) => post.subject)
+    return {
+      theme: item.theme,
+      posts: data,
+    }
+  })
 
   return Response.json(posts)
 }

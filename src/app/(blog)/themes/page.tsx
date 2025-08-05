@@ -1,5 +1,5 @@
 import { api } from '@/data/api'
-import { PostsProps } from '@/data/types/post'
+import { PostsProps } from '@/data/types/posts'
 
 import Link from 'next/link'
 

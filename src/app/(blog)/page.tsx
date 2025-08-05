@@ -1,8 +1,8 @@
 import { CarouselItems } from '@/components/carousel-items'
 import { api } from '@/data/api'
-import { PostsProps } from '@/data/types/post'
+import { ThemeProps } from '@/data/types/theme'
 
-export async function getThemesPost(): Promise<PostsProps[]> {
+export async function getThemesPost(): Promise<ThemeProps[]> {
   const response = await api('/posts/themes')
   const posts = response.json()
 
@@ -20,7 +20,7 @@ export default async function Home() {
             <CarouselItems
               key={item.theme}
               theme={item.theme}
-              content={item.content}
+              posts={item.posts}
             />
           )
         })}
