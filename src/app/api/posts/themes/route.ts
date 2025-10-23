@@ -10,6 +10,6 @@ export async function GET() {
       posts: data,
     }
   })
-
+  console.log(posts)
   return Response.json(posts)
 }
