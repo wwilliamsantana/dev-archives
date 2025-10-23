@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Dev Archives
 
-## Getting Started
 
-First, run the development server:
+### Sobre
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+> Este projeto é um blog pessoal ou um arquivo de documentação técnica. A aplicação foi construída com Next.js e o Server Actions Router, servindo conteúdo (posts) a partir de um arquivo `data.json` local através de API Routes. O frontend utiliza `React Markdown` para renderizar os posts com syntax highlighting e um carrossel (Embla) para navegação na home page. A estilização é feita com Tailwind CSS.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Tecnologia usadas com suas versões
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Next.js - 15.3.5
+- React - 19.0.0
+- Typescript - 5
+- Zod - 4.0.14
+- React-Markdown - 10.1.0
+- Embla-carousel-react - 8.6.0
+- Lucide-react - 0.525.0
+- Tailwind CSS - 4
+- Eslint - 9
 
-## Learn More
+### Execução do projeto
 
-To learn more about Next.js, take a look at the following resources:
+**Requer o NODE (npm) e o GIT instalado!**
+~~~javascript
+ 1. git clone https://github.com/wwilliamsantana/dev-archives.git
+ 2. cd dev-archives
+ 3. npm install
+ 4. npm run dev
+~~~~
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+ ### Layout - Desktop
 
-## Deploy on Vercel
+#### Home
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<img width="1079" height="1353" alt="Screenshot 2025-10-22 at 20-30-01 Estudos Conceitos e tudo mais" src="https://github.com/user-attachments/assets/4745ed99-af01-4ebb-8a23-1466d19e822d" />
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Subpágina
+<img width="1366" height="643" alt="Screenshot 2025-10-22 at 20-30-41 Estudos Conceitos e tudo mais" src="https://github.com/user-attachments/assets/5d007603-9ea7-4a0c-aa19-97c46121aee4" />
+
+### Conteúdo
+<img width="1366" height="643" alt="Screenshot 2025-10-22 at 20-30-47 Estudos Conceitos e tudo mais" src="https://github.com/user-attachments/assets/a7765b24-d6eb-48b1-95a9-99f215911d44" />
+
+### Temas
+<img width="1349" height="643" alt="Screenshot 2025-10-22 at 20-39-26 Estudos Conceitos e tudo mais" src="https://github.com/user-attachments/assets/55abf2ed-eb85-43ab-8ed1-6ac94db21dd0" />
+
